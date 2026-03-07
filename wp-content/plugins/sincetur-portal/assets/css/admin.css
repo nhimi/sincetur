@@ -1,0 +1,109 @@
+/* SINCETUR Portal – Admin Styles */
+
+.sinc-wrap h1 {
+    margin-bottom: 20px;
+}
+
+/* Dashboard stat grid */
+.sinc-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.sinc-stat-card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 6px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,.07);
+}
+
+.sinc-stat-card .dashicons {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: #2271b1;
+}
+
+.sinc-stat-card strong {
+    display: block;
+    font-size: 28px;
+    color: #1d2327;
+    margin: 6px 0 2px;
+}
+
+.sinc-stat-card p {
+    font-size: 12px;
+    color: #646970;
+    margin: 0 0 8px;
+}
+
+.sinc-stat-card a {
+    font-size: 12px;
+}
+
+.sinc-stat-primary {
+    border-color: #2271b1;
+    background: #f0f6fc;
+}
+
+.sinc-stat-primary .dashicons {
+    color: #135e96;
+}
+
+/* Badges */
+.sinc-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.sinc-badge-rascunho   { background: #f0f0f1; color: #3c434a; }
+.sinc-badge-emitida    { background: #e6f3fb; color: #2271b1; }
+.sinc-badge-paga       { background: #edfaef; color: #00a32a; }
+.sinc-badge-cancelada, .sinc-badge-cancelado, .sinc-badge-rejeitado { background: #fce9e9; color: #d63638; }
+.sinc-badge-pendente   { background: #fef8ee; color: #996800; }
+.sinc-badge-em_analise { background: #f0f6fc; color: #2271b1; }
+.sinc-badge-aprovado   { background: #edfaef; color: #00a32a; }
+.sinc-badge-entregue   { background: #f0f6fc; color: #135e96; }
+.sinc-badge-aberto     { background: #fef8ee; color: #996800; }
+.sinc-badge-em_curso   { background: #e6f3fb; color: #2271b1; }
+.sinc-badge-concluido  { background: #edfaef; color: #00a32a; }
+.sinc-badge-reservado  { background: #fef8ee; color: #996800; }
+.sinc-badge-pago       { background: #edfaef; color: #00a32a; }
+.sinc-badge-usado      { background: #f0f0f1; color: #3c434a; }
+
+/* Form */
+.sinc-form .form-table th { width: 200px; }
+
+/* Line items table */
+.sinc-line-items td input, .sinc-line-items td select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Notes */
+.sinc-note-card {
+    background: #f6f7f7;
+    border-left: 4px solid #2271b1;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-radius: 0 4px 4px 0;
+}
+
+.sinc-note-card p { margin: 4px 0; }
+
+/* COA table */
+.sinc-coa-table td:first-child,
+.sinc-coa-table th:first-child { font-family: monospace; }
+
+/* Pagination */
+.sinc-pagination { margin-top: 16px; }
+.sinc-pagination .button { margin-right: 4px; }
+.sinc-pagination .button.current { background: #2271b1; color: #fff; border-color: #2271b1; }

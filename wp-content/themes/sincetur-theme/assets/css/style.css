@@ -1,0 +1,262 @@
+/*
+Theme Name:   SINCETUR Theme
+Theme URI:    https://github.com/nhimi/sincetur
+Description:  Tema oficial do Portal de Agência de Viagens SINCETUR. Compatível com o plugin SINCETUR Portal.
+Author:       SINCETUR
+Version:      1.0.0
+License:      GPL-2.0+
+License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  sincetur-theme
+Tags:         travel, agency, responsive, custom-colors, full-width-template
+*/
+
+/* ─── Reset & Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --color-primary:   #1a6ea8;
+    --color-secondary: #f4a020;
+    --color-bg:        #f7f8fa;
+    --color-text:      #1d2327;
+    --color-muted:     #646970;
+    --color-border:    #dcdee2;
+    --radius:          8px;
+    --max-width:       1200px;
+    --font-body:       'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--color-text);
+    background: var(--color-bg);
+}
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ─── Container ────────────────────────────────────────────────────────────── */
+.container {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────────── */
+.site-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,.18);
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+}
+
+.site-logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -.5px;
+}
+
+.site-logo span { color: var(--color-secondary); }
+
+.site-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+}
+
+.site-nav a {
+    color: rgba(255,255,255,.9);
+    padding: 8px 14px;
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 500;
+    transition: background .15s;
+}
+
+.site-nav a:hover,
+.site-nav .current-menu-item a {
+    background: rgba(255,255,255,.15);
+    text-decoration: none;
+    color: #fff;
+}
+
+/* ─── Hero ──────────────────────────────────────────────────────────────────── */
+.site-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #0d4f82 100%);
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.site-hero h2 {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.site-hero p {
+    font-size: clamp(16px, 2vw, 20px);
+    opacity: .85;
+    max-width: 650px;
+    margin: 0 auto 32px;
+}
+
+.hero-cta {
+    display: inline-block;
+    background: var(--color-secondary);
+    color: #fff;
+    padding: 14px 36px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: 700;
+    transition: background .15s, transform .15s;
+}
+
+.hero-cta:hover {
+    background: #d4870d;
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: #fff;
+}
+
+/* ─── Module Sections ───────────────────────────────────────────────────────── */
+.sinc-section {
+    padding: 64px 0;
+}
+
+.sinc-section:nth-child(even) { background: #fff; }
+
+.sinc-section__header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sinc-section__header h2 {
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.sinc-section__header p {
+    color: var(--color-muted);
+    font-size: 16px;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+/* ─── Feature Icons ─────────────────────────────────────────────────────────── */
+.sinc-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.sinc-feature {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    border: 1px solid var(--color-border);
+    transition: box-shadow .2s;
+}
+
+.sinc-feature:hover { box-shadow: 0 4px 18px rgba(0,0,0,.1); }
+
+.sinc-feature .dashicons {
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+}
+
+.sinc-feature h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.sinc-feature p  { font-size: 13px; color: var(--color-muted); }
+
+/* ─── Footer ────────────────────────────────────────────────────────────────── */
+.site-footer {
+    background: #1a2535;
+    color: rgba(255,255,255,.7);
+    padding: 48px 0 24px;
+}
+
+.site-footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 36px;
+}
+
+.site-footer h4 { color: #fff; font-size: 15px; margin-bottom: 14px; }
+
+.site-footer ul { list-style: none; }
+.site-footer ul li + li { margin-top: 8px; }
+.site-footer a { color: rgba(255,255,255,.65); font-size: 14px; }
+.site-footer a:hover { color: #fff; }
+
+.site-footer__bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* ─── Content area ──────────────────────────────────────────────────────────── */
+.site-content {
+    min-height: 50vh;
+    padding: 48px 0;
+}
+
+.entry-title { font-size: clamp(24px, 4vw, 40px); font-weight: 800; margin-bottom: 20px; }
+.entry-content { max-width: 800px; }
+.entry-content p { margin-bottom: 1rem; }
+.entry-content h2, .entry-content h3 { margin: 1.5rem 0 .5rem; }
+
+/* ─── Buttons ────────────────────────────────────────────────────────────────── */
+.button, button, input[type="submit"] {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background .15s;
+}
+
+.button:hover, button:hover, input[type="submit"]:hover {
+    background: #135e96;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .site-header__inner { flex-direction: column; height: auto; padding: 14px 0; gap: 10px; }
+    .site-nav ul { flex-wrap: wrap; justify-content: center; }
+    .site-footer__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .sinc-features { grid-template-columns: 1fr 1fr; }
+}
