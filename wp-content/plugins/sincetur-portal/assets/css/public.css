@@ -1,0 +1,173 @@
+/* SINCETUR Portal – Public Styles */
+
+/* ── Card Listing ─────────────────────────────────────────────────────────── */
+.sinc-listing {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+}
+
+.sinc-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    overflow: hidden;
+    transition: box-shadow .2s, transform .2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.sinc-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,.14);
+    transform: translateY(-3px);
+}
+
+.sinc-card__thumb img.sinc-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.sinc-card__body {
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sinc-card__title {
+    font-size: 18px;
+    margin: 0 0 8px;
+}
+
+.sinc-card__title a { text-decoration: none; color: inherit; }
+.sinc-card__title a:hover { color: #2271b1; }
+
+.sinc-card__excerpt {
+    font-size: 14px;
+    color: #646970;
+    flex: 1;
+    margin-bottom: 12px;
+}
+
+.sinc-card__price {
+    font-size: 16px;
+    color: #1d2327;
+    margin: 0 0 14px;
+}
+
+.sinc-card__btn {
+    align-self: flex-start;
+    background: #2271b1;
+    color: #fff !important;
+    border-color: #2271b1;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    transition: background .15s;
+}
+
+.sinc-card__btn:hover { background: #135e96; }
+
+.sinc-no-results {
+    color: #646970;
+    font-style: italic;
+    text-align: center;
+    padding: 32px 0;
+}
+
+/* ── Form Container ──────────────────────────────────────────────────────── */
+.sinc-form-container {
+    max-width: 600px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    margin: 32px auto;
+}
+
+.sinc-form-container h3 {
+    margin-top: 0;
+    font-size: 22px;
+    border-bottom: 2px solid #f0f0f1;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.sinc-field {
+    margin-bottom: 18px;
+}
+
+.sinc-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.sinc-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #c3c4c7;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color .15s, box-shadow .15s;
+}
+
+.sinc-input:focus {
+    outline: none;
+    border-color: #2271b1;
+    box-shadow: 0 0 0 2px rgba(34,113,177,.15);
+}
+
+textarea.sinc-input { resize: vertical; min-height: 80px; }
+
+.sinc-ticket-types { display: flex; flex-direction: column; gap: 10px; }
+.sinc-ticket-option { font-size: 14px; cursor: pointer; }
+.sinc-ticket-option input { margin-right: 8px; }
+
+/* ── Alert ────────────────────────────────────────────────────────────────── */
+.sinc-alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.sinc-alert.sinc-success {
+    background: #edfaef;
+    color: #00a32a;
+    border: 1px solid #a1e6a1;
+}
+
+.sinc-alert.sinc-error {
+    background: #fce9e9;
+    color: #d63638;
+    border: 1px solid #f0a8a8;
+}
+
+/* ── Submit Button ─────────────────────────────────────────────────────────── */
+.sinc-btn-submit {
+    background: #2271b1;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background .15s;
+    width: 100%;
+}
+
+.sinc-btn-submit:hover { background: #135e96; }
+.sinc-btn-submit:disabled { background: #a7aaad; cursor: not-allowed; }
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .sinc-listing { grid-template-columns: 1fr; }
+    .sinc-form-container { padding: 20px; }
+}

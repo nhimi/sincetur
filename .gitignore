@@ -1,0 +1,37 @@
+# WordPress core (not committed)
+/wp-admin/
+/wp-includes/
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/backup-db/
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
+
+# WordPress config (contains secrets)
+wp-config.php
+
+# Third-party plugins and themes (install via Composer/WP)
+/wp-content/plugins/akismet/
+/wp-content/plugins/hello.php
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Composer
+/vendor/
+composer.lock
+
+# Node / NPM
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Build artefacts
+/wp-content/themes/sincetur-theme/assets/css/*.min.css
+/wp-content/themes/sincetur-theme/assets/js/*.min.js
