@@ -1,0 +1,46 @@
+# =============================================================================
+# .github/workflows/deploy.yml
+# CI/CD: Deploy automático ao servidor de produção via SSH
+#
+# Como configurar os secrets no GitHub:
+#   1. Acesse: Settings → Secrets and variables → Actions → New repository secret
+#   2. Adicione os seguintes secrets:
+#      - SERVER_HOST   : IP ou hostname do servidor (ex: 192.168.1.1)
+#      - SERVER_USER   : Utilizador SSH (ex: root ou ubuntu)
+#      - SERVER_SSH_KEY: Conteúdo completo da chave privada SSH (chave PEM)
+#      - SERVER_PORT   : Porta SSH (opcional, padrão: 22)
+#
+# Como gerar um par de chaves SSH para o servidor:
+#   ssh-keygen -t ed25519 -C "deploy@sincetur" -f ~/.ssh/sincetur_deploy
+#   # Copiar a chave pública para o servidor:
+#   ssh-copy-id -i ~/.ssh/sincetur_deploy.pub user@servidor
+#   # Adicionar o conteúdo de ~/.ssh/sincetur_deploy como secret SERVER_SSH_KEY
+# =============================================================================
+
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy via SSH
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_PORT || 22 }}
+          script: |
+            cd /opt/sincetur
+            bash deploy.sh
