@@ -1,0 +1,62 @@
+# =============================================================================
+# docker-compose.yml — Orquestração completa: App + PostgreSQL + Caddy
+# Uso: docker compose up -d
+# =============================================================================
+
+services:
+  app:
+    build: .
+    container_name: sincetur_app
+    ports:
+      - "3000:3000"
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - sincetur_net
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: sincetur_postgres
+    environment:
+      POSTGRES_DB: sincetur
+      POSTGRES_USER: sincetur_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sincetur_user -d sincetur"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - sincetur_net
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: sincetur_caddy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "81:81"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+    restart: unless-stopped
+    networks:
+      - sincetur_net
+
+networks:
+  sincetur_net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  caddy_data:
+  caddy_config:
